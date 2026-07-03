@@ -21,7 +21,7 @@ Deploy with Cloudflare Pages Direct Upload:
 npx wrangler pages deploy . --project-name sendyourprompt --branch main
 ```
 
-The production custom domain is <https://sendyourprompt.com/>.
+The production custom domain is <https://sendmeyourprompt.com/>.
 
 ## Credits
 
