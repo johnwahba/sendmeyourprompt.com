@@ -5,13 +5,23 @@ document, not just the generated output.
 
 ## Development
 
-This is a single static HTML page.
+This is a single static HTML page deployed on Cloudflare Pages.
 
 ```sh
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
 Then open <http://127.0.0.1:8765/>.
+
+## Deployment
+
+Deploy with Cloudflare Pages Direct Upload:
+
+```sh
+npx wrangler pages deploy . --project-name sendyourprompt --branch main
+```
+
+The production custom domain is <https://sendyourprompt.com/>.
 
 ## Credits
 
