@@ -2844,3 +2844,57 @@ The site check is clean: `index.html` has the emoji and no `:)`. I’m doing one
 ````text
 GitHub and Wrangler auth are good. I’m recording that verification in the transcript, then I’ll stage only `index.html` and `THREAD.md`.
 ````
+
+## 348. User - 2026-07-03 18:54:00 UTC
+
+````text
+wrap https://nohello.net/en/ in an href and push to prod.
+````
+
+## 349. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+I’ll link the literal `https://nohello.net/en/` in the prompt box, append this turn to `THREAD.md`, then commit, push `main`, and deploy the committed SHA to Cloudflare Pages production.
+````
+
+## 350. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+There’s already a local `index.html` modification before I touch it, so I’m inspecting that diff first and will preserve it. I also need to finish reading the Wrangler instructions before deploying.
+````
+
+## 351. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+The existing local `index.html` change is just a missing final newline. I’ll leave that as part of the working tree and make the requested link change in the prompt text without touching unrelated content.
+````
+
+## 352. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+The global link style is blue, which would make the prompt box look unlike the screenshot. I’ll add a scoped composer link rule so the URL is an actual anchor but still reads like the surrounding prompt text.
+````
+
+## 353. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+I’m editing the prompt URL and adding a scoped anchor style now. After that I’ll append the transcript entry and run checks.
+````
+
+## 354. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+The link is in place and styled to keep the composer visually unchanged. I’m appending this turn to `THREAD.md` now, including the note that there was a pre-existing missing-final-newline diff in `index.html`.
+````
+
+## 355. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+For the commit, I’m going to stage only the requested link/CSS hunk plus `THREAD.md`. The pre-existing missing-final-newline change in `index.html` will stay unstaged, and I’ll deploy from the committed tree so production matches the commit.
+````
+
+## 356. Assistant (commentary) - 2026-07-03 18:54:00 UTC
+
+````text
+The final newline issue disappeared after the patch rewrite, so there’s no unrelated hunk left in `index.html`. The diff now contains only the link/style change plus the transcript append.
+````
