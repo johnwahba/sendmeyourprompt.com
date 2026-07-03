@@ -69,7 +69,7 @@
     }
 
     p {
-      color: #15171a;
+      color: var(--body-copy);
       font-size: 18px;
       font-weight: 400;
       line-height: 28px;
@@ -88,24 +88,43 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --page-width: 960px;
+      --page-gutter: 24px;
+      --ink: #04143a;
+      --body-copy: #15171a;
+      --muted-copy: #616061;
+    }
+
     footer,
     .container {
-      max-width: 1100px;
+      width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
+      max-width: none;
       height: auto;
       margin: 60px auto;
     }
 
     .hero {
-      margin: 150px auto 170px;
+      margin: 130px auto 110px;
+      max-width: var(--page-width);
       position: relative;
     }
 
     h1.name {
-      font-size: 94px;
+      font-size: clamp(52px, 6.3vw, 88px);
       font-weight: 700;
-      color: #04143a;
-      display: inline-block;
-      line-height: 1;
+      color: var(--ink);
+      display: block;
+      line-height: 1.04;
+      letter-spacing: 0;
+      max-width: 940px;
+      text-wrap: balance;
+    }
+
+    h1.name s {
+      text-decoration-color: red;
+      text-decoration-thickness: 0.07em;
+      text-decoration-skip-ink: none;
     }
 
     .strike {
@@ -137,39 +156,49 @@
 
     .sections {
       vertical-align: top;
-      display: inline-block;
       min-height: 50px;
     }
 
-    .sectionleft {
-      width: 40%;
+    .container.nonos,
+    .container.yepyep {
+      display: grid;
+      grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+      column-gap: 70px;
+      align-items: start;
+      margin-top: 88px;
+      margin-bottom: 88px;
     }
 
+    .sectionleft,
     .sectionright {
-      width: 59%;
+      width: auto;
     }
 
     .section-title {
       font-size: 28px;
       font-weight: 600;
-      color: #04143a;
-      margin-bottom: 15px;
+      color: var(--ink);
+      margin-bottom: 20px;
       line-height: 36px;
     }
 
     .list-card.example,
     .prompt-card {
-      margin: 30px 80px 30px 0;
+      margin: 0;
       padding: 25px 25px 10px 25px;
       border-radius: 10px;
       background: #fff;
       box-shadow: -20px 20px 60px #d9d9d9, 20px -20px 60px #ffffff;
     }
 
+    .list-card.example {
+      width: 100%;
+    }
+
     .prompt-card {
-      max-width: 760px;
-      margin-top: 35px;
-      padding-bottom: 25px;
+      max-width: 840px;
+      margin-top: 42px;
+      padding: 28px 30px;
     }
 
     .hero .prompt-card {
@@ -192,18 +221,18 @@
     }
 
     .sectionright .list-card {
-      padding-top: 1px;
+      padding-top: 0;
     }
 
     .sectionright .list-card p {
       font-size: 18px;
-      color: #616061;
+      color: var(--muted-copy);
       line-height: 25px;
       margin-bottom: 22px;
     }
 
     .sectionright .list-card p:first-of-type {
-      margin-top: 55px;
+      margin-top: 0;
     }
 
     .container ul {
@@ -272,13 +301,13 @@
     }
 
     .solo {
-      max-width: 900px;
+      max-width: var(--page-width);
     }
 
     .solo h2 {
       font-size: 34px;
       font-weight: 600;
-      color: #04143a;
+      color: var(--ink);
       margin-bottom: 25px;
       line-height: 42px;
     }
@@ -378,26 +407,36 @@
 
       footer,
       .container {
-        padding: 15px;
+        width: calc(100% - 40px);
         margin: 0 auto;
       }
 
       .hero {
-        margin: 60px auto;
+        margin: 70px auto 90px;
       }
     }
 
     @media (max-width: 768px) {
+      :root {
+        --page-gutter: 20px;
+      }
+
+      .container.nonos,
+      .container.yepyep {
+        display: block;
+        margin-top: 72px;
+        margin-bottom: 72px;
+      }
+
       .sections {
         width: 100%;
         height: auto;
-        margin: 40px 0;
-        float: left;
+        margin: 0;
+        float: none;
       }
 
-      .list-card.example,
-      .prompt-card {
-        margin-right: 0;
+      .sectionright {
+        margin-top: 24px;
       }
 
       .sectionright .list-card p:first-of-type {
@@ -407,7 +446,7 @@
 
     @media (max-width: 425px) {
       h1.name {
-        font-size: 40px;
+        font-size: 42px;
       }
 
       .strike {
@@ -435,8 +474,13 @@
 
       .list-card.example,
       .prompt-card {
-        margin: 30px 0 0 0;
+        margin: 0;
         padding: 25px 25px 10px 25px;
+      }
+
+      .prompt-card {
+        margin-top: 30px;
+        padding-bottom: 25px;
       }
 
       .solo h2 {
