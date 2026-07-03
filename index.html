@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>send me your prompt</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="send me your prompt" />
+  <meta name="description" content="please don't send just the AI output" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sendmeyourprompt.com/" />
+  <meta property="og:title" content="send me your prompt" />
+  <meta property="og:description" content="please don't send just the AI output" />
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:url" content="https://sendmeyourprompt.com/" />
+  <meta property="twitter:title" content="send me your prompt" />
+  <meta property="twitter:description" content="please don't send just the AI output" />
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+    html,
+    body,
+    div,
+    span,
+    h1,
+    h2,
+    h3,
+    p,
+    blockquote,
+    pre,
+    a,
+    code,
+    em,
+    img,
+    strong,
+    section,
+    footer,
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+
+    section,
+    footer {
+      display: block;
+    }
+
+    body {
+      line-height: 1;
+      font-family: Lato, Ubuntu, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      font-size: 19px;
+      font-weight: 400;
+      background-color: #fefefe;
+      color: #04143a;
+    }
+
+    a {
+      text-decoration: none;
+      text-transform: none;
+      color: #4a90e2;
+    }
+
+    p {
+      color: #15171a;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 28px;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    div,
+    footer {
+      box-sizing: border-box;
+    }
+
+    footer,
+    .container {
+      max-width: 1100px;
+      height: auto;
+      margin: 60px auto;
+    }
+
+    .hero {
+      margin: 150px auto 170px;
+      position: relative;
+    }
+
+    h1.name {
+      font-size: 94px;
+      font-weight: 700;
+      color: #04143a;
+      display: inline-block;
+      line-height: 1;
+    }
+
+      .strike {
+        text-decoration: line-through;
+        text-decoration-color: red;
+        text-decoration-thickness: 8px;
+        display: inline;
+      }
+
+      .subtitle .strike {
+        text-decoration-thickness: 3px;
+      }
+
+    .subtitle {
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      color: #81899c;
+      margin-top: 10px;
+    }
+
+    .lead {
+      font-size: 44px;
+      font-weight: 300;
+      margin-top: 60px;
+      line-height: 55px;
+      max-width: 940px;
+    }
+
+    .sections {
+      vertical-align: top;
+      display: inline-block;
+      min-height: 50px;
+    }
+
+    .sectionleft {
+      width: 40%;
+    }
+
+    .sectionright {
+      width: 59%;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #04143a;
+      margin-bottom: 15px;
+      line-height: 36px;
+    }
+
+    .list-card.example,
+    .prompt-card {
+      margin: 30px 80px 30px 0;
+      padding: 25px 25px 10px 25px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: -20px 20px 60px #d9d9d9, 20px -20px 60px #ffffff;
+    }
+
+      .prompt-card {
+        max-width: 760px;
+        margin-top: 35px;
+        padding-bottom: 25px;
+      }
+
+      .hero .prompt-card {
+        display: block;
+      }
+
+    pre {
+      overflow-x: auto;
+      white-space: pre-wrap;
+      color: #15171a;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 28px;
+    }
+
+    .list-card div {
+      width: 100%;
+    }
+
+    .sectionright .list-card {
+      padding-top: 1px;
+    }
+
+    .sectionright .list-card p {
+      font-size: 18px;
+      color: #616061;
+      line-height: 25px;
+      margin-bottom: 22px;
+    }
+
+    .sectionright .list-card p:first-of-type {
+      margin-top: 55px;
+    }
+
+    .container ul {
+      list-style: none;
+      font-size: 18px;
+      color: #616061;
+      line-height: 25px;
+      margin-bottom: 18px;
+      margin-left: 20px;
+      margin-top: -10px;
+      opacity: 0.78;
+    }
+
+    .nonos ul li::before {
+      content: "×";
+      color: red;
+      font-weight: 700;
+      padding-right: 10px;
+      opacity: 1;
+    }
+
+    .yepyep ul li::before {
+      content: "✓";
+      font-size: 14px;
+      font-weight: 700;
+      color: green;
+      padding-right: 10px;
+      opacity: 1;
+    }
+
+    .slack {
+      padding-bottom: 15px;
+    }
+
+    .slack img {
+      width: 42px;
+      height: 42px;
+      border-radius: 5px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .slack .slackname {
+      font-weight: 700;
+      font-size: 16px;
+      color: #1d1c1d;
+    }
+
+    .slack .slacktime {
+      font-size: 14px;
+      color: #616061;
+    }
+
+    .slack .slackmessage {
+      font-size: 16px;
+      color: #1d1c1d;
+      line-height: 22px;
+    }
+
+    .mini {
+      margin-top: -50px;
+    }
+
+    .mini .sectionright .list-card p:first-of-type {
+      margin-top: 0;
+    }
+
+    .solo {
+      max-width: 900px;
+    }
+
+    .solo h2 {
+      font-size: 34px;
+      font-weight: 600;
+      color: #04143a;
+      margin-bottom: 25px;
+      line-height: 42px;
+    }
+
+      .solo p {
+        color: #15171a;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 34px;
+        margin-bottom: 22px;
+      }
+
+      .solo blockquote {
+        margin: 5px 0 28px 0;
+        padding-left: 24px;
+        border-left: 4px solid #e5e5e5;
+      }
+
+      .solo blockquote p {
+        margin-bottom: 16px;
+      }
+
+      .solo ul {
+        list-style: none;
+        color: #15171a;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 34px;
+        margin: -6px 0 24px 20px;
+        opacity: 1;
+      }
+
+      .solo ul li::before {
+        content: "✓";
+        font-size: 14px;
+        font-weight: 700;
+        color: green;
+        padding-right: 10px;
+      }
+
+    .rule {
+      width: 100%;
+      height: 1px;
+      margin: 70px 0;
+      background: #e9e9e9;
+    }
+
+    footer {
+      float: left;
+      width: 100%;
+      min-height: 150px;
+      font-size: 14px;
+      padding: 150px 150px 80px 150px !important;
+      margin-top: 0 !important;
+      color: #616061;
+      background-color: #eee;
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(238, 238, 238, 1) 45%);
+      max-width: none !important;
+      margin-bottom: 0 !important;
+      font-weight: 300;
+    }
+
+    footer p {
+      color: #616061;
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 14px;
+    }
+
+    footer a {
+      color: red;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      text-decoration: none;
+    }
+
+    .other-languages p,
+    .other-languages ul,
+    .other-languages li {
+      display: inline;
+    }
+
+    .other-languages ul {
+      margin: 0;
+      opacity: 1;
+    }
+
+    .other-languages li::after {
+      content: ".";
+    }
+
+    @media (max-width: 1024px) {
+
+      footer,
+      .container {
+        padding: 15px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        margin: 60px auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sections {
+        width: 100%;
+        height: auto;
+        margin: 40px 0;
+        float: left;
+      }
+
+      .list-card.example,
+      .prompt-card {
+        margin-right: 0;
+      }
+
+      .sectionright .list-card p:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 425px) {
+      h1.name {
+        font-size: 40px;
+      }
+
+        .strike {
+          text-decoration-thickness: 4px;
+        }
+
+        .subtitle .strike {
+          text-decoration-thickness: 2px;
+        }
+
+      .lead {
+        margin-top: 40px;
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .subtitle {
+        font-size: 20px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+
+      .list-card.example,
+      .prompt-card {
+        margin: 30px 0 0 0;
+        padding: 25px 25px 10px 25px;
+      }
+
+      .solo h2 {
+        font-size: 26px;
+        line-height: 34px;
+      }
+
+      .solo p {
+        font-size: 18px;
+        line-height: 29px;
+      }
+
+      footer {
+        padding: 150px 15px 80px 15px !important;
+        margin-top: -30px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wholesite">
+    <div class="container">
+      <div class="hero">
+        <h1 class="name">Send Me Your Prompt, Not Your Slop</h1>
+        <div class="prompt-card">
+          <pre><code>"Modeled off of [https://nohello.net/en/](https://nohello.net/en/) write some prose for sendmeyourprompt.com. It's meant to be a page to show people who send me slop AI docs. Self-referentially include and explain this exact message in the beginning of the page to show the pattern."</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="container solo mini">
+      <p>If you're reading this because I sent you <strong>sendmeyourprompt.com</strong>, there's a good chance you just did something like this.</p>
+      <p>That message is a perfect example of what I'm asking for.</p>
+      <p>It contains the <em>actual instructions</em> that produced the output. It tells me the intent, the reference, the audience, and the desired style. That's useful.</p>
+      <p>What isn't useful is forwarding me only the generated document and expecting me to reverse-engineer the conversation that created it.</p>
+
+      <div class="rule"></div>
+
+      <h2>AI output is a build artifact.</h2>
+      <p>The prompt is the source code.</p>
+      <p>If you send me the compiled binary but not the source, I'm left guessing:</p>
+      <ul>
+        <li>What was the original goal?</li>
+        <li>Which parts are intentional?</li>
+        <li>Which parts did the model invent?</li>
+        <li>What constraints did you give it?</li>
+        <li>What did you edit afterward?</li>
+        <li>Is this the first draft or the tenth?</li>
+      </ul>
+      <p>Without the prompt, every change starts from archaeology.</p>
+      <p>With the prompt, I can reproduce, improve, critique, or regenerate the work in minutes.</p>
+
+      <div class="rule"></div>
+
+      <h2>"But the document is what matters."</h2>
+      <p>Sometimes.</p>
+      <p>If you're sending me something that's final and you're asking for feedback on the content itself, the document is enough.</p>
+      <p>But if you're asking me to:</p>
+      <ul>
+        <li>improve it,</li>
+        <li>extend it,</li>
+        <li>adapt it,</li>
+        <li>debug it,</li>
+        <li>explain why the AI did something strange,</li>
+        <li>or continue the workflow,</li>
+      </ul>
+      <p>then the prompt is usually more valuable than the output.</p>
+
+      <div class="rule"></div>
+
+      <h2>Prompts preserve intent.</h2>
+      <p>AI text often loses the reasoning behind <em>why</em> it looks the way it does.</p>
+      <p>The prompt captures things like:</p>
+      <ul>
+        <li>who the audience is,</li>
+        <li>what tradeoffs were requested,</li>
+        <li>which examples were excluded,</li>
+        <li>what tone was intended,</li>
+        <li>and what the model was optimizing for.</li>
+      </ul>
+      <p>Those are impossible to reliably infer from the finished text.</p>
+    </div>
+
+    <div class="container nonos">
+      <div class="sections sectionleft">
+        <h2 class="section-title">Don't make me prompt-forensics your document.</h2>
+        <div class="list-card example">
+          <div class="slack">
+            <img alt="Tim's Slack avatar" src="img/tim.webp" width="128" height="128" />
+            <span class="slackname">Tim</span>
+            <span class="slacktime">2:15 PM</span><br />
+            <span class="slackmessage">Did you ask for this section?</span>
+          </div>
+          <div class="slack">
+            <img alt="Tim's Slack avatar" src="img/tim.webp" width="128" height="128" />
+            <span class="slackname">Tim</span>
+            <span class="slacktime">2:16 PM</span><br />
+            <span class="slackmessage">Was this hallucinated?</span>
+          </div>
+          <div class="slack">
+            <img alt="Tim's Slack avatar" src="img/tim.webp" width="128" height="128" />
+            <span class="slackname">Tim</span>
+            <span class="slacktime">2:17 PM</span><br />
+            <span class="slackmessage">What problem were you actually trying to solve?</span>
+          </div>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <div class="list-card">
+          <div>
+            <p>Every undocumented AI-generated document turns into a detective story.</p>
+            <p>I end up asking questions like:</p>
+            <ul>
+              <li>"Did you ask for this section?"</li>
+              <li>"Was this hallucinated?"</li>
+              <li>"Did you want bullets?"</li>
+              <li>"Was this supposed to be funny?"</li>
+              <li>"Is this copied from another draft?"</li>
+              <li>"What problem were you actually trying to solve?"</li>
+            </ul>
+            <p>We could have skipped all of that by starting with the prompt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container yepyep">
+      <div class="sections sectionleft">
+        <h2 class="section-title">Good</h2>
+        <div class="list-card example">
+          <div class="slack">
+            <img alt="Dawn's Slack avatar" src="img/dawn.webp" width="128" height="128" />
+            <span class="slackname">Dawn</span>
+            <span class="slacktime">2:15 PM</span><br />
+            <span class="slackmessage">Here's the prompt I used.</span>
+          </div>
+          <div class="slack">
+            <img alt="Dawn's Slack avatar" src="img/dawn.webp" width="128" height="128" />
+            <span class="slackname">Dawn</span>
+            <span class="slacktime">2:15 PM</span><br />
+            <span class="slackmessage">Here's the output.</span>
+          </div>
+          <div class="slack">
+            <img alt="Dawn's Slack avatar" src="img/dawn.webp" width="128" height="128" />
+            <span class="slackname">Dawn</span>
+            <span class="slacktime">2:16 PM</span><br />
+            <span class="slackmessage">Here's what I don't like.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <div class="list-card">
+          <div>
+            <p>This gives me the source, the build artifact, and the part you want help with.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container yepyep">
+      <div class="sections sectionleft">
+        <h2 class="section-title">Even Better</h2>
+        <div class="list-card example">
+          <div class="slack">
+            <img alt="Dawn's Slack avatar" src="img/dawn.webp" width="128" height="128" />
+            <span class="slackname">Dawn</span>
+            <span class="slacktime">2:18 PM</span><br />
+            <span class="slackmessage">Here's the chat link.</span>
+          </div>
+          <div class="slack">
+            <img alt="Tim's Slack avatar" src="img/tim.webp" width="128" height="128" />
+            <span class="slackname">Tim</span>
+            <span class="slacktime">2:18 PM</span><br />
+            <span class="slackmessage">Perfect. I can see the whole workflow.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <div class="list-card">
+          <div>
+            <p>Even better: send the chat link.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container nonos">
+      <div class="sections sectionleft">
+        <h2 class="section-title">Less Good</h2>
+        <div class="list-card example">
+          <div class="slack">
+            <img alt="Keith's Slack avatar" src="img/keith.webp" width="128" height="128" />
+            <span class="slackname">Keith</span>
+            <span class="slacktime">2:15 PM</span><br />
+            <span class="slackmessage">[15-page AI-generated document attached]</span>
+          </div>
+          <div class="slack">
+            <img alt="Keith's Slack avatar" src="img/keith.webp" width="128" height="128" />
+            <span class="slackname">Keith</span>
+            <span class="slacktime">2:15 PM</span><br />
+            <span class="slackmessage">Thoughts?</span>
+          </div>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <div class="list-card">
+          <div>
+            <p>Less good: a long AI document with no prompt and no explanation of what kind of help you want.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container nonos">
+      <div class="sections sectionleft">
+        <h2 class="section-title">Worst</h2>
+        <div class="list-card example">
+          <div class="slack">
+            <img alt="Keith's Slack avatar" src="img/keith.webp" width="128" height="128" />
+            <span class="slackname">Keith</span>
+            <span class="slacktime">2:20 PM</span><br />
+            <span class="slackmessage">Can you fix this?</span>
+          </div>
+          <div class="slack">
+            <img alt="Tim's Slack avatar" src="img/tim.webp" width="128" height="128" />
+            <span class="slackname">Tim</span>
+            <span class="slacktime">2:21 PM</span><br />
+            <span class="slackmessage">What is "this"?</span>
+          </div>
+        </div>
+      </div>
+      <div class="sections sectionright">
+        <div class="list-card">
+          <div>
+            <p>Worst: "Can you fix this?"</p>
+            <p>...with no context whatsoever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container solo">
+      <div class="rule"></div>
+      <h2>I don't need perfect prompts.</h2>
+      <p>Messy prompts are fine.</p>
+      <p>Half-finished prompts are fine.</p>
+      <p>Embarrassing prompts are fine.</p>
+      <p>A stream-of-consciousness dump is often <em>better</em> than a polished version because it tells me what you were actually thinking.</p>
+      <p>I just want the source.</p>
+
+      <div class="rule"></div>
+
+      <h2>The Rule</h2>
+      <p>If an AI wrote it...</p>
+      <p><strong>Send me the prompt.</strong></p>
+      <p>Not because I want to judge it.</p>
+      <p>Because that's where the information is.</p>
+      <p>The document is what the AI said.</p>
+      <p>The prompt is what <em>you</em> said.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      This is kinda only half serious (kinda 👀) so please don't get
+      <a href="https://www.youtube.com/watch?v=xzpndHtdl9A">mad</a>
+      at the person who sent you here.
+    </p>
+    <p>
+      That said, if you see this site's URL as someone's status/bio, be prepared
+      to be ignored if you only send the AI output.
+    </p>
+    <p>
+      Based on the wonderful
+      <a href="https://web.archive.org/web/20131127020115/http://www.nohello.com/">nohello.com</a>.
+      Avatars taken from
+      <em><a href="https://en.wikipedia.org/wiki/The_Office_(British_TV_series)">The Office</a></em>.
+      Styling modeled after
+      <a href="https://www.nohello.net/en/">nohello.net</a>.
+      Open-source on
+      <a href="https://github.com/johnwahba/sendmeyourprompt.com">GitHub</a>.
+    </p>
+    <p></p>
+
+    <section class="other-languages">
+      <p>This site is available in:</p>
+      <ul>
+        <li><a href="/" class="lang-chooser" data-lang="en" hreflang="en">English</a></li>
+      </ul>
+    </section>
+  </footer>
+</body>
+
+</html>
